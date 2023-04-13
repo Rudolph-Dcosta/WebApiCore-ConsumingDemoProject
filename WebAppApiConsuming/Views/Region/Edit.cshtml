@@ -1,0 +1,50 @@
+﻿@model WebAppApiConsuming.Models.Region
+@{
+    ViewData["Title"] = "Edit Region";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Region</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Code"></label>
+            <input asp-for="Code" class="form-control" />
+            <span asp-validation-for="Code" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="AreaName"></label>
+            <input asp-for="AreaName" class="form-control" />
+            <span asp-validation-for="AreaName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Area"></label>
+            <input asp-for="Area" class="form-control" />
+            <span asp-validation-for="Area" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Latitude"></label>
+            <input asp-for="Latitude" class="form-control" />
+            <span asp-validation-for="Latitude" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Longitude"></label>
+            <input asp-for="Longitude" class="form-control" />
+            <span asp-validation-for="Longitude" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Population"></label>
+            <input asp-for="Population" class="form-control" />
+            <span asp-validation-for="Population" class="text-danger"></span>
+        </div>
+        <button class="btn btn-primary" style="width:150px">Submit</button>
+        <a asp-controller="Region" asp-action="Index" class="btn btn-secondary" style="width:150px">Back</a>
+    </div>
+</form>
+@section Scripts
+    {
+    <partial name="_ValidationScriptsPartial.cshtml" />
+}
+

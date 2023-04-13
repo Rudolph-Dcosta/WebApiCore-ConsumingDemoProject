@@ -1,0 +1,77 @@
+﻿@model IEnumerable<WebAppApiConsuming.Models.Region>
+@{
+    ViewData["Title"] = "All Regions";
+}
+
+
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">All Regions</h2>
+        </div>
+        <div class="col-6 text-end">
+            @if (ViewBag.Role == "admin")
+            {
+                <a asp-controller="Region" asp-action="Create" class="btn btn-outline-primary"><i class="bi bi-plus-circle-dotted"></i> Add</a>
+            }
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Code
+            </th>
+            <th>
+                Area Name
+            </th>
+            <th>
+                Area
+            </th>
+            <th>
+                Latitude
+            </th>
+            <th>
+                Longitude
+            </th>
+            <th>
+                Population
+            </th>
+            @if (ViewBag.Role == "admin")
+            {
+                <th>
+                Edit | Delete
+                </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Code</td>
+                <td>@c.AreaName</td>
+                <td>@c.Area</td>
+                <td>@c.Latitude</td>
+                <td>@c.Longitude</td>
+                <td>@c.Population</td>
+
+                @if (ViewBag.Role == "admin")
+                {
+                    <td>
+                        <div class="btn-group m-75" role="group">
+                            <a asp-controller="Region" asp-action="Edit" asp-route-id="@c.Id" class="btn btn-outline-primary"><i class="bi bi-pencil"></i>Edit</a>
+                            <a asp-controller="Region" asp-action="Delete" asp-route-id="@c.Id" class="btn btn-outline-primary"><i class="bi bi-trash3"></i>Delete</a>
+                        </div>
+                    </td>
+                }      
+            </tr>
+        }
+    </tbody>
+</table>
+
+
